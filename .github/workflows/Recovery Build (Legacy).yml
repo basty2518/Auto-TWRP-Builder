@@ -93,6 +93,10 @@ jobs:
       run: |
         repo sync -j$(nproc --all) --force-sync
       working-directory: workspace
+
+    - name: Copy recovery image
+      run: cp ${GITHUB_WORKSPACE}/recovery_mod.img ${{ steps.pwd.outputs.workspace-folder }}/
+
     - name: Generate Device Tree
       run: |
         python3 ${GITHUB_WORKSPACE}/scripts/build.py -i recovery_mod.img -o device
