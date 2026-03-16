@@ -95,11 +95,11 @@ jobs:
       working-directory: workspace
 
     - name: Copy recovery image
-      run: cp ${GITHUB_WORKSPACE}/recovery_mod.img ${{ steps.pwd.outputs.workspace-folder }}/
+      run: cp ${GITHUB_WORKSPACE}/recovery.img ${{ steps.pwd.outputs.workspace-folder }}/
 
     - name: Generate Device Tree
       run: |
-        python3 ${GITHUB_WORKSPACE}/scripts/build.py -i recovery_mod.img -o device
+        python3 ${GITHUB_WORKSPACE}/scripts/build.py -i recovery.img -o device
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
       id: gdt
 
